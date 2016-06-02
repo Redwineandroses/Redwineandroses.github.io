@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>跨平台APP----对Cordova,APPCan,DCloud,APICloud四大平台的分析 | 王泽</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文转自：http://blog.csdn.net/tangzenglei/article/details/50668914
+前言：移动开发是未来一个很重要的IT领域，而跨平台开发将是这一领域最重要的事情。 —-谷震平
+兵器谱在国外，最大的是Cordova（PhoneGap，2011年广泛流行），在2012年12月开源。在国内，按时间顺序，有：
+2012年，AppCan2013年，DCloud20">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨平台APP----对Cordova,APPCan,DCloud,APICloud四大平台的分析">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/跨平台APP-对Cordova-APPCan-DCloud-APICloud四大平台的分析/index.html">
+<meta property="og:site_name" content="王泽">
+<meta property="og:description" content="原文转自：http://blog.csdn.net/tangzenglei/article/details/50668914
+前言：移动开发是未来一个很重要的IT领域，而跨平台开发将是这一领域最重要的事情。 —-谷震平
+兵器谱在国外，最大的是Cordova（PhoneGap，2011年广泛流行），在2012年12月开源。在国内，按时间顺序，有：
+2012年，AppCan2013年，DCloud20">
+<meta property="og:updated_time" content="2016-06-02T04:27:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跨平台APP----对Cordova,APPCan,DCloud,APICloud四大平台的分析">
+<meta name="twitter:description" content="原文转自：http://blog.csdn.net/tangzenglei/article/details/50668914
+前言：移动开发是未来一个很重要的IT领域，而跨平台开发将是这一领域最重要的事情。 —-谷震平
+兵器谱在国外，最大的是Cordova（PhoneGap，2011年广泛流行），在2012年12月开源。在国内，按时间顺序，有：
+2012年，AppCan2013年，DCloud20">
+  
+    <link rel="alternate" href="/atom.xml" title="王泽" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">王泽</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">伊泽</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-跨平台APP-对Cordova-APPCan-DCloud-APICloud四大平台的分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/跨平台APP-对Cordova-APPCan-DCloud-APICloud四大平台的分析/" class="article-date">
+  <time datetime="2016-03-02T02:47:08.000Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      跨平台APP----对Cordova,APPCan,DCloud,APICloud四大平台的分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文转自：<a href="http://blog.csdn.net/tangzenglei/article/details/50668914" target="_blank" rel="external">http://blog.csdn.net/tangzenglei/article/details/50668914</a></p>
+<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>移动开发是未来一个很重要的IT领域，而跨平台开发将是这一领域最重要的事情。 —-谷震平</p>
+<h2 id="兵器谱"><a href="#兵器谱" class="headerlink" title="兵器谱"></a>兵器谱</h2><p>在国外，最大的是Cordova（PhoneGap，2011年广泛流行），在2012年12月开源。<br>在国内，按时间顺序，有：</p>
+<p>2012年，AppCan<br>2013年，DCloud<br>2014年9月，APICloud</p>
+<h2 id="二-Cordova"><a href="#二-Cordova" class="headerlink" title="二 Cordova"></a>二 Cordova</h2><p>Cordova是Apache软件基金会的一个产品。其前身是PhoneGap，由Nitobi开发，2011年10月，Adobe收够了Nitobi，并且PhoneGap项目也被贡献给Apache软件基金会。Apache在2012年12月，发布了Cordova，截止到2015年12月，最新版面是3.0。<br>该框架的目标用户群体是原生开发者，其设计初衷是希望用户群体能够通过跨平台开发的方法降低原生开发的成本。为此，开发人员需要安装原生开发环境，配置工程，使用HTML5、CSS3、JS和原生SDK生成应用。<br>Cordova的优势很明显，可以使用的框架、原生接口、支持平台都很多。但是，外国人写的东西，公司使用后，出现的技术问题难以解决。同时，其在使用jQuery Mobile、Sencha Touch等前端框架的时候，有特效启动慢、页面切换慢、数据请求慢的特点。</p>
+<h2 id="三-APPCan"><a href="#三-APPCan" class="headerlink" title="三 APPCan"></a>三 APPCan</h2><p>AppCan成立于2010年，2011年推出产品并测试，2012年正式推出品牌，2013年商业模式成型，2014年开发者注册约70w。AppCan不是开源平台，同时，企业版和部分插件是收费的。换句话说，AppCan只是一个卖软件的商业公司。我们认为：这会对其市场的占有率有着直接影响，闭源而没有垄断，所以前景不会太好。</p>
+<h2 id="四-DCloud"><a href="#四-DCloud" class="headerlink" title="四 DCloud"></a>四 DCloud</h2><p>DCloud大部分产品开源，W3C会员单位，HTML5中国产业联盟的发起公司之一，在HTML5这个行业有一定的江湖地位。旗下四款产品：HBuilder、5+ Runtime、MUI、流应用都是弥补并扩展HTML5特性的产品。该公司的理念就是解决HTML5的性能、工具、能力三方面的问题。MUI是一款不错的前端框架，性能比 jQuery Mobile、Bootstrap好很多，主要区别：<br>设计思路不同，MUI坚持用原生JS做，不依赖jQuery或者Angularjs。<br>MUI调用了5+ Runtime的底层原生加速，比不带原生加速的框架更快。<br>但是，DCloud毕竟是个新平台，发展才2年，新产品内部存在的Bug还需要很多的测试。在其官方社区中，不少开发者也在呼吁DCloud尽快完善文档和框架。</p>
+<h2 id="五-APICloud"><a href="#五-APICloud" class="headerlink" title="五 APICloud"></a>五 APICloud</h2><p>APICloud提供原生应用的功能模块（设备访问，界面布局，开放SDK等），开发者可以通过JS调用。前端工程师负责页面布局，UI展现，及简单的交互，原生模块负责性能方面和功能实现，两者结合形成一个完整的应用。同时APICloud提供了云数据库的功能，前端不必了解PHP，Node.js等后端语言，通过JS接口或Restful API实现数据库的增删改查。<br>但是APICloud的更新速度很快，版本不太稳定。而且，它是为不懂APP开发的人士准备的，不适合科技公司和程序员。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/跨平台APP-对Cordova-APPCan-DCloud-APICloud四大平台的分析/" data-id="cioxswc8v000347s62nrm8u5d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/02/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/24/Runtime/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Runtime</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/02/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/跨平台APP-对Cordova-APPCan-DCloud-APICloud四大平台的分析/">跨平台APP----对Cordova,APPCan,DCloud,APICloud四大平台的分析</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/24/Runtime/">Runtime</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
